@@ -1,0 +1,9 @@
+#!/bin/bash
+
+case "${1}" in
+  configure)
+    echo "Enabling & starting Sage Wagman Watchdog Service"
+    systemctl enable sage-wagman-watchdog.service
+    systemctl start sage-wagman-watchdog.service || true
+    ;;
+esac

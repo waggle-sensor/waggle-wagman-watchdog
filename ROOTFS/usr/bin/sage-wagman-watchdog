@@ -1,0 +1,26 @@
+#!/bin/bash
+
+GPIO_EXPORT=240
+PIN=3
+
+GPIODIR="/sys/class/gpio/gpio${GPIO_EXPORT}"
+
+if [ ! -d "$GPIODIR" ]; then
+
+        echo "Activating GPIO pin ${PIN} with export number ${GPIO_EXPORT}."
+        echo ${GPIO_EXPORT} > /sys/class/gpio/export
+	
+fi
+
+echo "out" > /sys/class/gpio/gpio${GPIO_EXPORT}/direction
+echo 1 > /sys/class/gpio/gpio${GPIO_EXPORT}/value
+
+echo "GPIO pin ${PIN} active"
+sleep 1
+
+echo 0 > /sys/class/gpio/gpio${GPIO_EXPORT}/value
+
+echo "GPIO pin ${PIN} deactivated"
+sleep 1
+
+echo "Pinged GPIO pin ${PIN} with export number ${GPIO_EXPORT}."

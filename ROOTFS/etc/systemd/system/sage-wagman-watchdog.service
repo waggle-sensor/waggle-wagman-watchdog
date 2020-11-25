@@ -1,0 +1,10 @@
+[Unit]
+Description=Sage Wagman Watchdog
+
+[Service]
+Restart=always
+RestartSec=60sec
+ExecStart=/usr/bin/sage-wagman-watchdog
+
+[Install]
+WantedBy=multi-user.target

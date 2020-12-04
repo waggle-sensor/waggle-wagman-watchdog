@@ -3,7 +3,7 @@
 case "${1}" in
   configure)
     echo "Enabling & starting Sage Wagman Watchdog Service"
-    systemctl enable sage-wagman-watchdog.service
-    systemctl start sage-wagman-watchdog.service || true
+    systemctl enable sage-wagman-watchdog.timer
+    systemctl start sage-wagman-watchdog.timer || true
     ;;
 esac

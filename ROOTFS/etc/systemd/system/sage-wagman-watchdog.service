@@ -2,9 +2,8 @@
 Description=Sage Wagman Watchdog
 
 [Service]
-Restart=always
-RestartSec=60sec
 ExecStart=/usr/bin/sage-wagman-watchdog
+RuntimeMaxSec=10sec
 
 [Install]
 WantedBy=multi-user.target

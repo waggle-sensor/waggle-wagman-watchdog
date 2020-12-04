@@ -21,6 +21,5 @@ sleep 1
 echo 0 > /sys/class/gpio/gpio${GPIO_EXPORT}/value
 
 echo "GPIO pin ${PIN} deactivated"
-sleep 1
 
 echo "Pinged GPIO pin ${PIN} with export number ${GPIO_EXPORT}."

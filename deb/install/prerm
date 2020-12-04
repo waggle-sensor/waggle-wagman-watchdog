@@ -1,4 +1,4 @@
 #!/bin/bash
 
-systemctl stop sage-wagman-watchdog.service || true
-systemctl disable sage-wagman-watchdog.service || true
+systemctl stop sage-wagman-watchdog.timer || true
+systemctl disable sage-wagman-watchdog.timer || true

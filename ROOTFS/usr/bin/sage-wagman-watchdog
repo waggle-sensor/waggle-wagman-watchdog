@@ -1,7 +1,8 @@
 #!/bin/bash
 
-GPIO_EXPORT=240
-PIN=3
+GPIO_EXPORT=$(awk -F "= " '/gpio-export/ {print $2}' /etc/sage/config.ini)
+PIN=$(awk -F "= " '/gpio-pin/ {print $2}' /etc/sage/config.ini)
+SLEEPTIME=$(awk -F "= " '/watchdog-sec/ {print $2}' /etc/sage/config.ini)
 
 GPIODIR="/sys/class/gpio/gpio${GPIO_EXPORT}"
 
@@ -16,7 +17,7 @@ echo "out" > /sys/class/gpio/gpio${GPIO_EXPORT}/direction
 echo 1 > /sys/class/gpio/gpio${GPIO_EXPORT}/value
 
 echo "GPIO pin ${PIN} active"
-sleep 1
+sleep $SLEEPTIME
 
 echo 0 > /sys/class/gpio/gpio${GPIO_EXPORT}/value
 

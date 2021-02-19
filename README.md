@@ -1,6 +1,6 @@
 # Sage-Wagman-Watchdog
 
-Creates Debian Package containing services to pet/ping the watchdog based on information in /etc/sage/config.ini. The package containing all services is ~1500B.
+Creates Debian Package containing services to pet/ping the watchdog based on information in /etc/waggle/config.ini. The package containing all services is ~1500B.
 
 ### Usage
 

@@ -1,8 +1,8 @@
 #!/bin/bash
 
-GPIO_EXPORT=$(awk -F "= " '/gpio-export/ {print $2}' /etc/sage/config.ini)
-PIN=$(awk -F "= " '/gpio-pin/ {print $2}' /etc/sage/config.ini)
-SLEEPTIME=$(awk -F "= " '/watchdog-sec/ {print $2}' /etc/sage/config.ini)
+GPIO_EXPORT=$(awk -F "= " '/gpio-export/ {print $2}' /etc/waggle/config.ini)
+PIN=$(awk -F "= " '/gpio-pin/ {print $2}' /etc/waggle/config.ini)
+SLEEPTIME=$(awk -F "= " '/watchdog-sec/ {print $2}' /etc/waggle/config.ini)
 
 GPIODIR="/sys/class/gpio/gpio${GPIO_EXPORT}"
 

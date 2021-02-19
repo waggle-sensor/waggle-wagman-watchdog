@@ -10,7 +10,7 @@ ARCH=all
 mkdir -p ${BASEDIR}/DEBIAN
 cat > ${BASEDIR}/DEBIAN/control <<EOL
 Package: ${NAME}
-Version: ${VERSION}
+Version: ${VERSION_LONG}
 Maintainer: sagecontinuum.org
 Description: Starting SAGE NX Wagman Watchdog Services
 Architecture: ${ARCH}
@@ -22,5 +22,5 @@ cp -p deb/install/prerm ${BASEDIR}/DEBIAN/
 
 cp -pr ROOTFS/* ${BASEDIR}/
 
-dpkg-deb --root-owner-group --build ${BASEDIR} "${NAME}_${VERSION}_${ARCH}.deb"
+dpkg-deb --root-owner-group --build ${BASEDIR} "${NAME}_${VERSION_SHORT}_${ARCH}.deb"
 mv *.deb /output/

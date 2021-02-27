@@ -3,17 +3,19 @@
 GPIO_EXPORT=$(awk -F "= " '/gpio-export/ {print $2}' /etc/waggle/config.ini)
 PIN=$(awk -F "= " '/gpio-pin/ {print $2}' /etc/waggle/config.ini)
 SLEEPTIME=$(awk -F "= " '/watchdog-sec/ {print $2}' /etc/waggle/config.ini)
+SSH_OK=$(awk -F "= " '/ssh_ok_file/ {print $2}' /etc/waggle/config.ini)
 
 GPIODIR="/sys/class/gpio/gpio${GPIO_EXPORT}"
-SSH_OK="/etc/waggle/waggle_ssh_ok"
 
-if [ ! -f "$SSH_OK" ]; then
+if [ -n "$SSH_OK" ] && [ ! -f "$SSH_OK" ]; then
 	echo "ERROR: no active connection to beehive, not pinging wagman"
 	exit 0
 fi
 
-# removing file to be replenished by waggle-network-watchdog if beehive connection still active
-rm $SSH_OK
+if [ -n "$SSH_OK" ]; then
+	# removing file to be replenished by waggle-network-watchdog if beehive connection still active
+	rm $SSH_OK
+fi
 
 if [ ! -d "$GPIODIR" ]; then
 

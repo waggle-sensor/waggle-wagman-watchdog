@@ -7,12 +7,12 @@ SSH_OK=$(awk -F "= " '/ssh_ok_file/ {print $2}' /etc/waggle/config.ini)
 
 GPIODIR="/sys/class/gpio/gpio${GPIO_EXPORT}"
 
-if [ -n "$SSH_OK" ] && [ ! -f "$SSH_OK" ]; then
-	echo "ERROR: no active connection to beehive, not pinging wagman"
-	exit 0
-fi
-
 if [ -n "$SSH_OK" ]; then
+	if [ ! -f "$SSH_OK" ]; then
+		echo "ERROR: no active connection to beehive, not pinging wagman"
+		exit 0
+	fi
+	
 	# removing file to be replenished by waggle-network-watchdog if beehive connection still active
 	rm $SSH_OK
 fi

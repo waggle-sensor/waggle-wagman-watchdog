@@ -1,0 +1,9 @@
+[Unit]
+Description=Waggle Wagman Watchdog
+
+[Service]
+ExecStart=/usr/bin/waggle-wagman-watchdog
+RuntimeMaxSec=10sec
+
+[Install]
+WantedBy=multi-user.target

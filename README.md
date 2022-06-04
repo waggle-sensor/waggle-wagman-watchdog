@@ -1,6 +1,8 @@
-# Sage-Wagman-Watchdog
+# Waggle Wagman Watchdog
 
 Creates Debian Package containing services to pet/ping the watchdog based on information in /etc/waggle/config.ini. The package containing all services is ~1500B.
+
+> Note: the Debian package name retains the "sage" naming convention to ensure backwards compatibility
 
 ### Usage
 
@@ -23,12 +25,12 @@ For example:
 dpkg -i sage-wagman-watchdog_1.0.1.local-3755475_all.deb
 ```
 
-Following the execution of this installation, all services and files neccessary will be placed in their correct locations and the service should be running.
+Following the execution of this installation, all services and files necessary will be placed in their correct locations and the service should be running.
 
 To confirm, 
 
 ```
-journalctl -fu sage-wagman-watchdog
+journalctl -fu waggle-wagman-watchdog
 ```
 
 You can observe that your watchdog should be pinged every minute from here.

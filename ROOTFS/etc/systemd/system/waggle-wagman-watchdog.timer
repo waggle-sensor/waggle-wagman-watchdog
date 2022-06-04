@@ -1,0 +1,10 @@
+[Unit]
+Description=Runs waggle-wagman-watchdog.service every 1 minute
+
+[Timer]
+OnBootSec=1 m
+OnUnitActiveSec=1 m
+Unit=waggle-wagman-watchdog.service
+
+[Install]
+WantedBy=basic.target
